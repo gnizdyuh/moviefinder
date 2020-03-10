@@ -1,13 +1,9 @@
-let result
-
-const api_key = '1163ce68a41e10db43a5fc10a8c73d1b'
-
 const TrendingFilms = async () => {
   const url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${api_key}`
   let response = await fetch(url)
   let films = await response.json()
   let collection = []
-  films.results.forEach((film) => {
+  await films.results.forEach((film) => {
     collection.push(`<a class="collection-item">${film.title}</li>`)
   })
   const container = document.querySelector('#search-results')
