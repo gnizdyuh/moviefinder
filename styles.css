@@ -1,0 +1,10 @@
+.card-image img {
+  max-height: 30vh;
+  width: auto !important;
+  margin: auto;
+}
+
+a,
+.collection-item {
+  cursor: pointer;
+}
