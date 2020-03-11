@@ -1,0 +1,27 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "Apiko test task for 8th React Intensive",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnizdyuh/moviefinder.git"
+  },
+  "keywords": [
+    "template",
+    "codesandbox",
+    "static"
+  ],
+  "author": "Volodymyr Hnizdiukh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gnizdyuh/moviefinder/issues"
+  },
+  "homepage": "https://github.com/gnizdyuh/moviefinder#readme",
+  "devDependencies": {
+    "serve": "^11.2.0"
+  }
+}

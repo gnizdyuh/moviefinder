@@ -23,7 +23,7 @@ const FindHandler = async () => {
   let films = await response.json()
   const collection = document.querySelector('#search-results')
   console.log(films)
-  collection.innerHTML = await DisplayFilm(films)
+  collection.innerHTML = DisplayFilm(films)
   document.querySelector('#search').value = ""
 }
 
