@@ -72,21 +72,45 @@ const DisplayFilm = (films) => {
   } else {
     results = [films]
   }
+
   let collection = []
+  let img
+  let recomendations
   results.forEach(result => {
-    let { title, backdrop_path, overview } = result
-    backdrop_path ? img = `<img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2${backdrop_path}"></img>` : img = ""
+    let { id, title, backdrop_path, overview } = result
+    DisplayRecomendations(id)
+    backdrop_path ? img = `<img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2${backdrop_path}"></img>` : img = "";
     collection.push(`<li class="collection-item">
           <div class="card">
             <div class="card-image">${img}</div>
             <div class="card-content">
               <span class="card-title">${title}</span>
               <p>${overview}</p>
-              <h5>Recomendations</h5>
-              
+              <span id="recomendations${id}"></span>
             </div>
           </div>
         </li>`)
   })
   return `<ul class="collection">${collection.join("")}</ul>`
+}
+
+const DisplayRecomendations = async (movie_id) => {
+  let span
+  try {
+    let url = `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${api_key}`
+    let response = await fetch(url)
+    let films = await response.json()
+    let { results } = films
+    let film_titles = []
+    results.forEach(film => {
+      film_titles.push(`<a class="collection-item" onclick="FindFilm('${film.id}')">${film.title}</a>`)
+    }
+    )
+    span = await document.querySelector(`#recomendations${movie_id}`)
+    if (film_titles.length)
+      span.innerHTML = `<h5>Recomendations</h5><div class="collection">${film_titles.join("")}</div>`
+  } catch (error) {
+    console.log(error)
+  }
+
 }
