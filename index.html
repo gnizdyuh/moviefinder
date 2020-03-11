@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
   <script src="./app.js"></script>
   <script src="./token.js"></script>
   <link rel="stylesheet" href="./styles.css">
@@ -19,8 +20,10 @@
 <body>
   <div class="container">
     <h2>Moviefinder</h2>
-    <input type="text" id="search" placeholder="Movie name">
-    <button type="button" class="waves-effect btn" onclick="FindHandler()">FIND</button>
+    <form onsubmit="FindHandler(event)">
+      <input type="text" id="search" placeholder="Movie name">
+      <button class="waves-effect btn" id="search-film">FIND</button>
+    </form>
     <span id="search-results">
       <script>
         TrendingFilms()

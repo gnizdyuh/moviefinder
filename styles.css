@@ -4,7 +4,10 @@
   margin: auto;
 }
 
-a,
-.collection-item {
+a.collection-item {
   cursor: pointer;
+}
+
+.preloader-wrapper {
+  margin-top: 15px;
 }
