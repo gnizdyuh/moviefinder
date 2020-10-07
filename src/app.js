@@ -75,7 +75,6 @@ const DisplayFilm = (films) => {
 
   let collection = []
   let img
-  let recomendations
   results.forEach(result => {
     let { id, title, backdrop_path, overview } = result
     DisplayRecomendations(id)
